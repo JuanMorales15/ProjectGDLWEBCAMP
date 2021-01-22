@@ -71,27 +71,30 @@
     </div>
     <main class="container new-section">
         <h2>Registro de usuarios</h2>
-        <form action="" method="post">
+        <form action="" > <!-- method="post"-->
             <fieldset class="container-reservations containers-clear">
                 <div class="record-field">
-                    <label for="name">Nombre:</label>
-                    <input type="text" name="name" id="name" placeholder="Tu Nombre">
+                    <label>Nombre:</label>
+                    <input type="text" name="name" class="name" placeholder="Tu Nombre">
+                    <div class="error"></div>
                 </div>
                 <div class="record-field">
-                    <label for="last-name">Apellido:</label>
-                    <input type="text" name="last-name" id="last-name" placeholder="Tu Apellido">
+                    <label>Apellido:</label>
+                    <input type="text" name="last-name" class="last-name" placeholder="Tu Apellido">
+                    <div class="error"></div>
                 </div>
                 <div class="record-field">
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" id="email" placeholder="Tu Email">
+                    <label>Email:</label>
+                    <input type="email" name="email" class="email" placeholder="Tu Email">
+                    <div class="error"></div>
                 </div>
-                <div class="error"></div>
             </fieldset>
+
             <fieldset>
                 <h3>elige el número de boletos</h3>
                 <div class="grid container-price packages">
                     <div class="containers-clear content-price">
-                        <h3 class="tittle-price">pase por dia (Viernes)</h3>
+                        <h3 class="tittle-price">pase por día (Viernes)</h3>
                         <p class="price">$30</p>
                         <div class="inf-price">
                             <p><i class="fas fa-check"></i>bocadillos gratis</p>
@@ -99,12 +102,12 @@
                             <p><i class="fas fa-check"></i>todos los talleres</p>
                         </div>
                         <div class="form-tickets">
-                            <label for="ticket-day">Boletos deseados</label>
-                            <input type="number" min="0" placeholder="0" id="ticket-day">
+                            <label>Boletos deseados</label>
+                            <input type="number" min="0" placeholder="0" class="ticket-day">
                         </div>
                     </div>
                     <div class="containers-clear content-price">
-                        <h3 class="tittle-price spacing-full">todos los dias</h3>
+                        <h3 class="tittle-price spacing-full">todos los días</h3>
                         <p class="price">$50</p>
                         <div class="inf-price">
                             <p><i class="fas fa-check"></i>bocadillos gratis</p>
@@ -112,12 +115,12 @@
                             <p><i class="fas fa-check"></i>todos los talleres</p>
                         </div>
                         <div class="form-tickets">
-                            <label for="full-ticket">Boletos deseados</label>
-                            <input type="number" min="0" placeholder="0" id="full-ticket">
+                            <label>Boletos deseados</label>
+                            <input type="number" min="0" placeholder="0" class="full-ticket">
                         </div>
                     </div>
                     <div class="containers-clear content-price grid-colum1-3">
-                        <h3 class="tittle-price">pase por 2 dias (viernes y sábado)</h3>
+                        <h3 class="tittle-price">pase por 2 días (viernes y sábado)</h3>
                         <p class="price">$45</p>
                         <div class="inf-price">
                             <p><i class="fas fa-check"></i>bocadillos gratis</p>
@@ -125,16 +128,17 @@
                             <p><i class="fas fa-check"></i>todos los talleres</p>
                         </div>
                         <div class="form-tickets">
-                            <label for="ticket-twodays">Boletos deseados</label>
-                            <input type="number" min="0" placeholder="0" id="ticket-twodays">
+                            <label>Boletos deseados</label>
+                            <input type="number" min="0" placeholder="0" class="ticket-twodays">
                         </div>
                     </div>
                 </div>
             </fieldset>
+
             <fieldset>
                 <h3>elige tus talleres</h3>
                 <div class="container-reservations containers-clear container-workshops">
-                    <div>
+                    <div class="friday">
                         <h4>Viernes</h4>
                         <div class="container-day">
                             <div class="colum-4 content-workshops">
@@ -156,8 +160,8 @@
                                 <label><input type="checkbox" name="registro[]" id="sem_01" value="sem_01"><time>10:00</time> Diseño UI y UX para móviles</label>
                             </div>
                         </div>
-                    </div> <!--#viernes-->
-                    <div>
+                    </div> <!--#Friday-->
+                    <div class="saturday">
                         <h4>Sábado</h4>
                         <div class="container-day">
                             <div class="colum-4 content-workshops">
@@ -181,8 +185,8 @@
                                 <label><input type="checkbox" name="registro[]" id="sem_03" value="sem_03"><time>17:00</time> Diseño UI y UX para móviles</label>
                             </div>
                         </div>
-                    </div> <!--#viernes-->
-                    <div>
+                    </div> <!--#Sábado-->
+                    <div class="sunday">
                         <h4>Domingo</h4>
                         <div class="container-day">
                             <div class="colum-4 content-workshops">
@@ -205,25 +209,25 @@
                                 <label><input type="checkbox" name="registro[]" id="sem_05" value="sem_05"><time>17:00</time> Creando una App en iOS en una tarde</label>
                             </div>
                         </div>
-                    </div> <!--#viernes-->
+                    </div> <!--#Domingo-->
                 </div><!--.caja-->
             </fieldset>
+
             <fieldset>
                 <h3>pago y extras</h3>
                 <div class="container-reservations containers-clear form-payments">
                     <div class="colum-6">
                         <div class="content-payments">
-                            <label for="shirt-event">Camisa del evento $10 <span>(promocion 7% dto.)</span></label>
-                            <input type="number" min="0" class="input-quantity" id="shirt-event">
+                            <label>Camisa del evento $10 <span>(30% dto. en mayor a 15 camisas)</span></label>
+                            <input type="number" min="0" class="input-quantity number-shirts" placeholder="0">
                         </div>
                         <div class="content-payments">
-                            <label for="label">Paquete de 10 etiquetas $2
-                                <span>(HTML5,CCS3,JavaScript,Chrome)</span></label>
-                            <input type="number" min="0" class="input-quantity" id="label">
+                            <label>Paquete de 10 etiquetas $2 <span>(HTML5,CCS3,JavaScript,Chrome)</span></label>
+                            <input type="number" min="0" class="input-quantity number-labels" placeholder="0">
                         </div>
                         <div class="content-payments">
-                            <label for="present">Seleccione un regalo</label>
-                            <select name="" id="present" required>
+                            <label>Seleccione un regalo</label>
+                            <select name="" id="present">
                                 <option value="" selected>-- Seleccione un regalo --</option>
                                 <option value="label">Etiquetas</option>
                                 <option value="bracelet">Pulsera</option>
@@ -231,7 +235,7 @@
                             </select>
                         </div>
                         <div class="container-btn-payments">
-                            <input type="submit" value="Calcular" class="button button-orange">
+                            <input type="submit" value="Calcular" id="calculate" class="button button-orange">
                         </div>
                     </div>
                     <div class="colum-6">
@@ -240,7 +244,7 @@
                         <p>Total:</p>
                         <div class="total"></div>
                         <div class="container-btn-payments">
-                            <input type="submit" value="Pagar" class="button button-orange">
+                            <input type="submit" value="Pagar" id="pay" class="button button-orange">
                         </div>
                     </div>
                 </div>
