@@ -712,11 +712,9 @@
     .sunday{
       display: none;
     }
-    div.error{
-      display: none;
-    }
-    .error p{
+    div.error p{
       color: var(--text-red);
+      font-size: 1.5rem;
     }
 
     /* ==========================================================================
@@ -994,10 +992,16 @@
         flex-direction: row;
         justify-content: space-around;
       }
+      div.error{
+        position: absolute;
+        top: 3.5rem;
+        left: 10rem;
+      }
       .record-field{
         flex-direction: row;
         flex: 0 0 calc(30% - 1rem);
         flex-wrap: wrap;
+        position: relative;
       }
       .record-field input{
         margin: 0 0 0 1rem;

@@ -108,20 +108,42 @@
         }
 
         //funcion para validar campos vacios
-        name.addEventListener('blur',validar);
-        lastName.addEventListener('blur',validar);
-        email.addEventListener('blur',validar);
+        name.addEventListener('blur', emptyFields);
+        lastName.addEventListener('blur', emptyFields);
+        email.addEventListener('blur', emptyFields);
+        email.addEventListener('blur', validateEmail);
 
-        function validar(){
+        function emptyFields(){
             let padre = this.parentElement;
             let error = padre.querySelector('div.error');
             if(this.value == ''){    
                 error.style.display="block";
                 error.innerHTML="<p>* Campo obligatorio</p>";
+                this.style.border= "1px solid red";
                 this.focus(); 
             }else{
+                this.style.border= "1px solid var(--border-price)";
                 error.style.display="none";
             }            
         }          
+
+        function validateEmail(){
+            let exprecion = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+            let padre = this.parentElement;
+            let errordiv = padre.querySelector('div.error');
+            if(this.value == ''){
+                errordiv.style.display="block";
+                errordiv.innerHTML="<p>* Campo obligatorio</p>";
+                this.focus(); 
+            }else if(!exprecion.test(email.value)){  
+                console.log(exprecion.test(email.value));
+                errordiv.style.display="block";
+                errordiv.innerHTML="<p>* El correo no es valido</p>";
+                this.focus(); 
+            }else{
+                errordiv.style.display="none";
+            }   
+        }
+
     });// DOM CONTENT LOADED
 })();
