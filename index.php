@@ -1,72 +1,4 @@
-<!doctype html>
-<html class="no-js" lang="">
-
-<head>
-  <meta charset="utf-8">
-  <title>GDLWEBCAMP</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
-  integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/lightbox.css">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald:wght@500&family=PT+Sans:wght@700&display=swap" rel="stylesheet"> 
-  <link rel="stylesheet" href="css/main.css">
-  <script type="text/javascript" src="js/jQuery-3.5.1.js"></script>
-</head>
-
-<body>
-  <!--[if IE]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif]-->
-  <header class="hero">
-    <div class="container-hero">
-      <nav class="container-social">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-pinterest-p"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-      </nav>
-      <div class="container-name">
-        <div class="content-header">
-          <p><i class="fas fa-calendar-alt"></i> 10-12 DIC</p>
-          <p><i class="fas fa-map-marker-alt"></i> Monterrey,N.L</p>
-        </div>
-        <nav>
-          <a href="index.html">
-            <h1>GDLWEBcamp</h1>
-          </a>
-        </nav>
-      </div>
-      <p class="slogan">La mejor conferencia de <span>diseño web</span></p>
-    </div>
-  </header>
-  <div class="bar">
-    <div class="container-menu container">
-      <div class="container-menu-mobile">
-        <nav class="logo">
-          <a href="index.html"><img src="img/logo.svg" alt="Logo"></a>
-        </nav>
-        <div class="mobile-menu">
-          <a href="#nav"><i class="fas fa-bars"></i></a>
-        </div>
-      </div>
-      <nav id="nav" class="nav-menu">
-        <a href="#">conferencia</a>
-        <a href="calendar.html">calendario</a>
-        <a href="#">invitados</a>
-        <a class="reserv" href="registry.html">reservaciones</a>
-      </nav>
-    </div>
-  </div>
+<?php include_once("includes/templates/header.php"); ?>
   <section class="container new-section">
     <h2>La mejor conferencia de diseño web del mundo</h2>
     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur iusto debitis ea architecto hic facere
@@ -189,54 +121,25 @@
   <section class="container new-section">
     <h2>Nuestros invitados</h2>
     <ul class="guest-list">
-      <li>
+      <?php require_once('includes/functions/function.php');
+        $arrayGuests = getGuest();
+        foreach($arrayGuests as $date => $guests):?>
+        <li>
         <div class="content-invitado">
-          <img class="img-guets" src="img/invitado1.jpg" alt="guests1">
-          <a href="#">
-            <p class="guest-name">Rafael Bautista</p>
+          <a class="name-guest" href="#invitado<?php echo $guests['user_id']?>">
+            <img class="img-guets" src="img/<?php echo $guests['url_picture'];?>" alt="guests2">
+            <p class="guest-name"><?php echo $guests['user_name'].' '.$guests['user_surname'];?></p>
           </a>
-        </div>
-      </li>
-      <li>
-        <div class="content-invitado">
-          <img class="img-guets" src="img/invitado2.jpg" alt="guests2">
-          <a href="#">
-            <p class="guest-name">Shari herrera</p>
-          </a>
-        </div>
-      </li>
-      <li>
-        <div class="content-invitado">
-          <img class="img-guets" src="img/invitado3.jpg" alt="guests3">
-          <a href="#">
-            <p class="guest-name">gregorio sanchez</p>
-          </a>
-        </div>
-      </li>
-      <li>
-        <div class="content-invitado">
-          <img class="img-guets" src="img/invitado4.jpg" alt="guests4">
-          <a href="#">
-            <p class="guest-name">susana rivera</p>
-          </a>
-        </div>
-      </li>
-      <li>
-        <div class="content-invitado">
-          <img class="img-guets" src="img/invitado5.jpg" alt="guests5">
-          <a href="#">
-            <p class="guest-name">harnold garcia</p>
-          </a>
-        </div>
-      </li>
-      <li>
-        <div class="content-invitado">
-          <img class="img-guets" src="img/invitado6.jpg" alt="guests6">
-          <a href="#">
-            <p class="guest-name">susan sanchez</p>
-          </a>
-        </div>
-      </li>
+          </div>
+          <div style="display: none;">
+            <div id="invitado<?php echo $guests['user_id']?>">
+              <h2><?php echo $guests['user_name'].' '.$guests['user_surname'];?></h2>
+              <img class="img-guets" src="img/<?php echo $guests['url_picture'];?>" alt="guests2">
+              <p><?php echo $guests['description'];?></p>          
+            </div>
+          </div>
+        </li>
+        <?php endforeach;?>
     </ul>
   </section>
   <div class="summary parallax">
@@ -263,7 +166,8 @@
     <h2>Precios</h2>
     <div class="grid container-price">
       <div class="containers-clear content-price">
-        <h3 class="tittle-price">pase por dia</h3>        <p class="price">$30</p>
+        <h3 class="tittle-price">pase por dia</h3>        
+        <p class="price">$30</p>
         <div class="inf-price">
           <p><i class="fas fa-check"></i>bocadillos gratis</p>
           <p><i class="fas fa-check"></i>todas las conferencias</p>
@@ -380,59 +284,4 @@
     </div>
   </div>
 </div>
-<footer class="footer">
-  <div class="container-footer container new-section">
-    <div class="content-footer">
-      <h3 class="tittle-footer">Sobre <span>GDLWEBCAMP</span></h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi mollitia porro dolore nihil? Reiciendis porro
-        mollitia veniam eaque consectetur itaque. Voluptate explicabo molestiae minus quo officia atque saepe error
-        esse!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate explicabo molestiae minus
-      </p>
-    </div>
-    <div class="content-footer">
-      <h3 class="tittle-footer">Últimos <span>Tweets</span></h3>
-      <ul class="last-tweets">
-        <li>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate explicabo molestiae minus</p>
-        </li>
-        <li>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate explicabo molestiae minus</p>
-        </li>
-        <li>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate explicabo molestiae minus</p>
-        </li>
-      </ul>
-    </div>
-    <div class="content-footer">
-      <h3 class="tittle-footer">Redes <span>sociales</span></p></h3>  
-      <nav class="container-social width-footer">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-pinterest-p"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-      </nav>
-    </div>
-  </div>
-  <p class="bar-footer">Todos los derechos reservador GDLWEBCAMP 2020</p>
-</footer>
- <script src="js/vendor/modernizr-3.8.0.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
-  <script src="js/plugins.js"></script>
-  <script src="js/Plugins/jquery.animateNumber.min.js"></script>
-  <script src="js/Plugins/jquery.countdown.min.js"></script>
-  <script src="js/Plugins/lightbox.js"></script>
-  <script src="js/Plugins/jquery.waypoints.min.js"></script>
-  <script src="js/main.js"></script>
-
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
-</body>
-</html>
+<?php include_once("includes/templates/footer.php"); ?>

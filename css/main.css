@@ -408,11 +408,11 @@
       display: grid;
       grid-gap: 2rem;
     }
-    .content-invitado{
+    .content-guests{
       position: relative;
       overflow: hidden;
     }
-    .content-invitado img{
+    .content-guests img{
       filter: grayscale(100%);
       transition: all .5s ease-in-out;
     }
@@ -436,7 +436,7 @@
       overflow: hidden;
     }
     .summary{
-      background-image: url(/img/bg-resumen.jpg);
+      background-image: url(../img/bg-resumen.jpg);
     }
     .container-summary{
       display: flex;
@@ -606,10 +606,14 @@
       color: var(--color-white);
       font-family: 'Oswald', sans-serif;
       font-size: 3rem;
+      padding: 1rem;
     }
     .tittle-calendary h3{
       color: var(--color-white);
       text-align: center;
+    }
+    .tittle-calendary h3 li{
+      margin-right: .5rem;
     }
     .content-calendary{
       padding: 2rem 2rem;
