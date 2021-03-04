@@ -59,89 +59,21 @@
     <section class="container-video">
       <h2>Programa del evento</h2>
       <nav class="menu-video">
-        <a href="#workshops"><i class="fas fa-code"></i>Talleres</a>
-        <a href="#conference"><i class="fas fa-comments"></i>Conferencias</a>
-        <a href="#seminars"><i class="fas fa-university"></i>Seminarios</a>
+      <?php require_once('includes/functions/function.php');
+          $arrayCategory = getCategory();
+          foreach($arrayCategory as $category):
+          $categoryName=$category['category_name']; ?>
+              <a href="#<?php echo $categoryName;?>"><i class="fas <?php echo $category['icon']?>">
+              </i><?php echo $categoryName?>
+            </a>
+          <?php endforeach;?>
       </nav>
       <div class="container-description">
-        <div class="hide" id="workshops">
-          <div class="description-video">
-            <h3>HTML5, CSS3 y JavaScript</h3>
-            <p><i class="far fa-clock"></i>14:00 hrs</p>
-            <p><i class="fas fa-calendar-alt"></i>10 de DIC.</p>
-            <p><i class="fas fa-user"></i>Juan Carlos Ruedas</p>
-          </div>
-          <div class="description-video">
-            <h3>Responsive Web Design</h3>
-            <p><i class="far fa-clock"></i>14:00 hrs</p>
-            <p><i class="fas fa-calendar-alt"></i>10 de DIC.</p>
-            <p><i class="fas fa-user"></i>Juan Carlos Ruedas</p>
-          </div>
-          <div class="container-button">
-            <a class="button button-orange" href="#">Ver todos</a>
-          </div>
-        </div>
-        <div class="hide" id="conference">
-          <div class="description-video">
-            <h3>Como ser freelancer</h3>
-            <p><i class="far fa-clock"></i>10:00 hrs</p>
-            <p><i class="fas fa-calendar-alt"></i>10 de DIC.</p>
-            <p><i class="fas fa-user"></i>Arizbeth Danae Nuñez</p>
-          </div>
-          <div class="description-video">
-            <h3>Tecnologias del futuro</h3>
-            <p><i class="far fa-clock"></i>17:00 hrs</p>
-            <p><i class="fas fa-calendar-alt"></i>10 de DIC.</p>
-            <p><i class="fas fa-user"></i>Maria del Refugio Morales</p>
-          </div>
-          <div class="container-button">
-            <a class="button button-orange" href="#">Ver todos</a>
-          </div>
-        </div>
-        <div class="hide" id="seminars">
-          <div class="description-video">
-            <h3>Diseño UI/UX para moviles</h3>
-            <p><i class="far fa-clock"></i>17:00 hrs</p>
-            <p><i class="fas fa-calendar-alt"></i>11 de DIC.</p>
-            <p><i class="fas fa-user"></i>Vallolet Miranda Galvan</p>
-          </div>
-          <div class="description-video">
-            <h3>Aprende a programar en una mañana</h3>
-            <p><i class="far fa-clock"></i>10:00 hrs</p>
-            <p><i class="fas fa-calendar-alt"></i>10 de DIC.</p>
-            <p><i class="fas fa-user"></i>Juan Manuel Ramirez </p>
-          </div>
-          <div class="container-button">
-            <a class="button button-orange" href="#">Ver todos</a>
-          </div>
-        </div>
+        <?php include_once("includes/templates/temevents.php"); ?>
       </div>
     </section>
   </div>
-  <section class="container new-section">
-    <h2>Nuestros invitados</h2>
-    <ul class="guest-list">
-      <?php require_once('includes/functions/function.php');
-        $arrayGuests = getGuest();
-        foreach($arrayGuests as $date => $guests):?>
-        <li>
-        <div class="content-invitado">
-          <a class="name-guest" href="#invitado<?php echo $guests['user_id']?>">
-            <img class="img-guets" src="img/<?php echo $guests['url_picture'];?>" alt="guests2">
-            <p class="guest-name"><?php echo $guests['user_name'].' '.$guests['user_surname'];?></p>
-          </a>
-          </div>
-          <div style="display: none;">
-            <div id="invitado<?php echo $guests['user_id']?>">
-              <h2><?php echo $guests['user_name'].' '.$guests['user_surname'];?></h2>
-              <img class="img-guets" src="img/<?php echo $guests['url_picture'];?>" alt="guests2">
-              <p><?php echo $guests['description'];?></p>          
-            </div>
-          </div>
-        </li>
-        <?php endforeach;?>
-    </ul>
-  </section>
+  <?php include_once("includes/templates/temguests.php"); ?>
   <div class="summary parallax">
     <div class="container-summary new-section">
       <div class="content-summary">
@@ -256,7 +188,7 @@
     </div>
   </div>
 </section>
- <div class="registry parallax">
+ <div class="container-registry parallax">
     <p>registrate al newsletter:</p>
     <p class="h1">GDLWEBcamp</p>
     <div class="container-btn-registry">

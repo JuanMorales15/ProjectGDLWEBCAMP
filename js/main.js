@@ -151,6 +151,11 @@
 
 $(function(){
     'use strict';
+    
+    //Page Indicator
+    $('body.calendar nav.nav-menu a:contains(calendario)').addClass('link');
+    $('body.guests nav.nav-menu a:contains(invitados)').addClass('link');
+    $('body.registry nav.nav-menu a:contains(reservaciones)').addClass('activeLast');
 
     // Fixed Menu
     let ventanaHeader = $('header').innerHeight(),
@@ -172,16 +177,13 @@ $(function(){
         // $('nav.nav-menu').css({'display': 'flex'});
     });
 
-    //Section Gallery - library use LIGHTBOX
-    lightbox.option({
-        'resizeDuration': 200,
-        'wrapAround': true
-      })
-
     //Section Menu-Video
     $('div.container-description div:first').show();
     $('nav.menu-video a:first').addClass('active');
     $('nav.menu-video a').on('click', showDescription);
+
+    //Section Colorbox
+    $('a.guest-id').colorbox({inline: true, width: '40%'});
 
     function showDescription(e){
         e.preventDefault();

@@ -16,14 +16,26 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
   integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/lightbox.css">
-  <link rel="stylesheet" href="css/colorbox.css">
+  <?php 
+
+    $pagina = $_SERVER['PHP_SELF']; 
+    $lastComponent = basename($pagina);
+
+    $formattedName = str_replace('.php',"",$lastComponent);
+    
+    if($formattedName=='index'){
+      echo '<link rel="stylesheet" href="css/lightbox.css">';
+      echo '<link rel="stylesheet" href="css/colorbox.css">';
+    }elseif($formattedName=='guests'||$formattedName=='index'){
+      echo '<link rel="stylesheet" href="css/colorbox.css">';
+    }
+  ?>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald:wght@500&family=PT+Sans:wght@700&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="css/main.css">
   <script type="text/javascript" src="js/jQuery-3.5.1.js"></script>
 </head>
 
-<body>
+<body class="<?php echo $formattedName?>">
   <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
@@ -62,7 +74,8 @@
       </div>
       <nav id="nav" class="nav-menu">
         <a href="calendar.php">calendario</a>
-        <a class="reserv" href="registry.php">reservaciones</a>
+        <a href="guests.php">invitados</a>
+        <a href="registry.php">reservaciones</a>
       </nav>
     </div>
   </div>    

@@ -33,7 +33,7 @@
       </nav>
     </div>
   </div>
-  <p class="bar-footer">Todos los derechos reservador GDLWEBCAMP 2020</p>
+  <p class="bar-footer">Todos los derechos reservados GDLWEBCAMP 2020</p>
 </footer>
  <script src="js/vendor/modernizr-3.8.0.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -42,9 +42,19 @@
   <script src="js/plugins.js"></script>
   <script src="js/Plugins/jquery.animateNumber.min.js"></script>
   <script src="js/Plugins/jquery.countdown.min.js"></script>
-  <script src="js/Plugins/lightbox.js"></script>
   <script src="js/Plugins/jquery.waypoints.min.js"></script>
-  <script src="js/Plugins/jquery.colorbox-min.js"></script>
+  <?php 
+
+    $lastComponent = basename($_SERVER['PHP_SELF']);
+    $formattedName = str_replace('.php',"",$lastComponent);
+
+    if($formattedName=='index'){
+      echo '<script src="js/Plugins/lightbox.js"></script>';
+      echo '<script src="js/Plugins/jquery.colorbox-min.js"></script>';
+    }elseif($formattedName=='guests'||$formattedName=='index'){
+      echo '<script src="js/Plugins/jquery.colorbox-min.js"></script>';
+    }
+  ?>
   <script src="js/main.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->

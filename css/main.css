@@ -297,6 +297,9 @@
     nav.nav-menu a:last-child{
       margin-bottom: 0;
     }
+    .link{
+      border-bottom: 5px solid var(--text-red);  
+    }
     /*---------------section-galery---------------*/
     .container-galery{
       display: grid;
@@ -427,6 +430,18 @@
       color: var(--text-border-orange);
       text-align: start;
     }
+    #cboxLoadedContent{
+      text-align: center;
+    }
+    #cboxLoadedContent h2{
+      margin: 2rem 0;
+    }
+    #cboxLoadedContent img{
+      width: 80%;
+    }
+    #cboxLoadedContent p{
+      margin: 2rem 0;
+    }
     /*---------------section-summary---------------*/
     .parallax {
       background-repeat: no-repeat;
@@ -537,7 +552,7 @@
       font-size: 1.3rem;
     }
     /*---------------section-registry---------------*/
-    .registry{
+    .container-registry{
       background-image: url(../img/bg-inscribir.jpg);
       height: 45rem;
       display: flex;
@@ -545,7 +560,7 @@
       justify-content: center;
       align-items: center;
     }
-    .registry p{
+    .container-registry p{
       color: var(--color-white);
       font-weight: bold;
       text-transform: uppercase;
@@ -612,7 +627,7 @@
       color: var(--color-white);
       text-align: center;
     }
-    .tittle-calendary h3 li{
+    .tittle-calendary h3 i{
       margin-right: .5rem;
     }
     .content-calendary{
@@ -932,6 +947,11 @@
         color: var(--color-white);
         background-color: var(--text-border-orange);
       }
+      nav.nav-menu a:last-of-type.activeLast{
+        border: unset;
+        border-bottom: 5px solid var(--text-red);    
+        padding:0;
+      }
       /*---------------section-video---------------*/
       .container-video{
         left: 7rem;
@@ -1008,12 +1028,12 @@
       .container-btn-registry{
         margin-top: 5rem;
       }
-      .registry p{
+      .container-registry p{
         color: var(--color-white);
         font-weight: bold;
         text-transform: uppercase;
       }
-      .registry p.h1{
+      .container-registry p.h1{
         font-size: 11rem;
         line-height: 1;
       }
